@@ -24,7 +24,9 @@
             },
 
             mounted() {
-                alert('mounted');
+                setTimeout(() => {
+                    this.greeting = 'Changed after 3 seconds';
+                }, 3000);
             }
         }).mount('#app');
     </script>
