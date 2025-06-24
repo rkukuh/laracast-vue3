@@ -18,11 +18,17 @@
 </head>
 <body>
     <div id="app">
-        <button class="text-green">Click Me</button>
+        <button v-bind:class="buttonClasses">Click Me</button>
     </div>
 
     <script>
-        Vue.createApp({}).mount('#app');
+        Vue.createApp({
+            data() {
+                return {
+                    buttonClasses: 'text-green'
+                }
+            }
+        }).mount('#app');
     </script>
 </body>
 </html>
