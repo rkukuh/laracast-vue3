@@ -7,28 +7,11 @@
 </head>
 <body>
     <div id="app">
-        <p>
-            <input type="text" v-model="greeting">
-        </p>
-        <p>
-            {{ greeting }} ({{ greeting.length }})
-        </p>
+        <button>Click Me</button>
     </div>
 
     <script>
-        Vue.createApp({
-            data() {
-                return {
-                    greeting: 'Hello Vue3!'
-                }
-            },
-
-            mounted() {
-                setTimeout(() => {
-                    this.greeting = 'Changed after 3 seconds';
-                }, 3000);
-            }
-        }).mount('#app');
+        Vue.createApp({}).mount('#app');
     </script>
 </body>
 </html>
