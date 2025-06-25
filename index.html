@@ -11,7 +11,9 @@
         <section>
             <h2 class="text-2xl font-bold mb-2">Active Todos</h2>
             <ul>
-                <li v-for="todo in todos.filter(filtered => !filtered.is_completed)">
+                <li 
+                    :key="todo.id"
+                    v-for="todo in todos.filter(filtered => !filtered.is_completed)">
                     <label>
                         {{ todo.title }}
 
@@ -24,7 +26,9 @@
         <section class="mt-8">
             <h2 class="text-xl font-bold mb-2">Completed Todos</h2>
             <ul>
-                <li v-for="todo in todos.filter(filtered => filtered.is_completed)">
+                <li 
+                    :key="todo.id"
+                    v-for="todo in todos.filter(filtered => filtered.is_completed)">
                     <label>
                         {{ todo.title }}
 
@@ -40,9 +44,9 @@
             data() {
                 return {
                     todos: [
-                        { title: 'Buy groceries', is_completed: false },
-                        { title: 'Finish the project', is_completed: false },
-                        { title: 'Call the plumber', is_completed: false }                
+                        { id: 1, title: 'Buy groceries', is_completed: false },
+                        { id: 2, title: 'Finish the project', is_completed: false },
+                        { id: 3, title: 'Call the plumber', is_completed: false }                
                     ]
                 }
             }
