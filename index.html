@@ -4,38 +4,22 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <style>
-        html, body { height: 100%; }
-
-        body {
-            display: grid;
-            place-items: center;
-        }
-
-        .text-red { color: red; }
-        .text-green { color: green; }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <div id="app">
-        <button :class="isActive ? 'text-green' : 'text-red'" @click="toggle">Click Me</button>
+        <section>
+            <h2>My To Do List</h2>
+            <ul>
+                <li>Buy groceries</li>
+                <li>Finish the project</li>
+                <li>Call the plumber</li>
+            </ul>
+        </section>
     </div>
 
     <script>
-        Vue.createApp({
-            data() {
-                return {
-                    buttonClasses: 'text-green',
-                    isActive: true
-                }
-            },
-
-            methods: {
-                toggle() {
-                    this.isActive = !this.isActive;
-                }
-            }
-        }).mount('#app');
+        Vue.createApp({}).mount('#app');
     </script>
 </body>
 </html>
