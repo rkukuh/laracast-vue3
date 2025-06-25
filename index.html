@@ -11,24 +11,31 @@
         <section>
             <h2 class="text-2xl font-bold mb-4">My To Do List</h2>
             <ul>
-                <li>
-                    Buy groceries 
-                    <input type="checkbox">
-                </li>
-                <li>
-                    Finish the project 
-                    <input type="checkbox">
-                </li>
-                <li>
-                    Call the plumber 
-                    <input type="checkbox">
+                <li v-for="todo in todos">
+                    <label>
+                        {{ todo.title }}
+
+                        <input type="checkbox" v-model="todo.is_completed">
+                    </label>
                 </li>
             </ul>
         </section>
     </div>
 
     <script>
-        Vue.createApp({}).mount('#app');
+        let app = {
+            data() {
+                return {
+                    todos: [
+                        { title: 'Buy groceries', is_completed: false },
+                        { title: 'Finish the project', is_completed: false },
+                        { title: 'Call the plumber', is_completed: false }                
+                    ]
+                }
+            }
+        }
+
+        Vue.createApp(app).mount('#app');
     </script>
 </body>
 </html>
