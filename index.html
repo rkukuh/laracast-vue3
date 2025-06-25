@@ -11,7 +11,7 @@
         <section>
             <h2 class="text-2xl font-bold mb-2">Active Todos</h2>
             <ul>
-                <li v-for="todo in todos">
+                <li v-for="todo in todos.filter(filtered => !filtered.is_completed)">
                     <label>
                         {{ todo.title }}
 
@@ -24,7 +24,7 @@
         <section class="mt-8">
             <h2 class="text-xl font-bold mb-2">Completed Todos</h2>
             <ul>
-                <li v-for="todo in todos">
+                <li v-for="todo in todos.filter(filtered => filtered.is_completed)">
                     <label>
                         {{ todo.title }}
 
