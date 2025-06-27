@@ -7,15 +7,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="h-full grid place-items-center">
-    <div id="app"></div>
+    <div id="app">
+        <app-button></app-button>
+    </div>
 
     <script>
         let app = {
             components: {
-                'app-button': {},
-                'todo-list': {},
-                'todo-list-item': {},
-                'todo-list-item-checkbox': {}
+                'app-button': {
+                    template: `
+                        <div>I'm a component!</div>
+                    `,
+                    mounted() {
+                        alert('hello');
+                    }
+                }
             }
         }
 
