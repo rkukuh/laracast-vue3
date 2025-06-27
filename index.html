@@ -8,8 +8,8 @@
 </head>
 <body class="h-full grid place-items-center">
     <div id="app">
-        <app-button></app-button>
-        <app-button></app-button>
+        <app-button>No, Cancel</app-button>
+        <app-button>Yes, Apply</app-button>
     </div>
 
     <script>
@@ -18,7 +18,7 @@
                 'app-button': {
                     template: `
                         <button class="bg-gray-200 hover:bg-gray-400 border rounded px-5 py-4">
-                            I am a button component
+                            <slot />
                         </button>
                     `
                 }
