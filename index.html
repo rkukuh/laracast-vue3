@@ -10,10 +10,14 @@
     <div id="app"></div>
 
     <script>
-        let app = {}
-        let TodoList = {}
-        let TodoListItem = {}
-        let TodoCompleteCheckbox = {}
+        let app = {
+            components: {
+                'app-button': {},
+                'todo-list': {},
+                'todo-list-item': {},
+                'todo-list-item-checkbox': {}
+            }
+        }
 
         Vue.createApp(app).mount('#app');
     </script>
