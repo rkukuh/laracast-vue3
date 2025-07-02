@@ -11,23 +11,12 @@
         <app-button>Loading...</app-button>
     </div>
 
-    <script>
+    <script type="module">
+        import AppButton from './js/components/AppButton.js';
+
         let app = {
             components: {
-                'app-button': {
-                    template: `
-                        <button 
-                            class="bg-gray-200 border rounded px-5 py-4 disabled:cursor-not-allowed"
-                            :disabled="is_loading">
-                            <slot />
-                        </button>
-                    `,
-                    data() {
-                        return {
-                            is_loading: true
-                        }
-                    }
-                }
+                'app-button': AppButton
             }
         }
 
