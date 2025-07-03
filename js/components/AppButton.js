@@ -6,6 +6,14 @@ export default {
             <slot />
         </button>
     `,
+    
+    props: {
+        type: {
+            type: String,
+            default: 'primary'
+        }
+    },
+
     data() {
         return {
             is_loading: true
