@@ -16,12 +16,11 @@ export default {
         type: {
             type: String,
             default: 'primary'
-        }
-    },
+        },
 
-    data() {
-        return {
-            is_loading: false
+        is_loading: {
+            type: Boolean,
+            default: false
         }
     }
 }

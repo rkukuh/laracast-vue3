@@ -9,8 +9,8 @@
 <body class="h-full grid place-items-center">
     <div id="app">
         <app-button type="primary">Submit</app-button>
-        <app-button type="secondary">Cancel</app-button>
-        <app-button type="muted">Back</app-button>
+        <app-button type="secondary" is_loading>Cancel</app-button>
+        <app-button type="muted" :is_loading="true">Back</app-button>
     </div>
 
     <script type="module">
