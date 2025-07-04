@@ -5,12 +5,38 @@
     <title>Document</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* https://stephanwagner.me/coding/blog/only-css-loading-spinner */
+        
+        @keyframes spinner {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .spinner::before {
+            content: "";
+            box-sizing: border-box;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 24px;
+            height: 24px;
+            margin-top: -12px;
+            margin-left: -12px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            border-top-color: #000;
+            animation: spinner 600ms linear infinite;
+        }
+
+        .spinner { color: transparent; }
+    </style>
 </head>
 <body class="h-full grid place-items-center">
     <div id="app">
-        <app-button type="primary">Submit</app-button>
-        <app-button type="secondary" is_loading>Cancel</app-button>
-        <app-button type="muted" :is_loading="true">Back</app-button>
+        <app-button type="primary" :is_loading="true">Submit</app-button>
     </div>
 
     <script type="module">
