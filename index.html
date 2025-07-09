@@ -5,44 +5,66 @@
     <title>Document</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <style>
-        /* https://stephanwagner.me/coding/blog/only-css-loading-spinner */
-        
-        @keyframes spinner {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        
-        .spinner::before {
-            content: "";
-            box-sizing: border-box;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 24px;
-            height: 24px;
-            margin-top: -12px;
-            margin-left: -12px;
-            border-radius: 50%;
-            border: 2px solid #ccc;
-            border-top-color: #000;
-            animation: spinner 600ms linear infinite;
-        }
-
-        .spinner { color: transparent; }
-    </style>
 </head>
 <body class="h-full grid place-items-center">
     <div id="app">
-        <app-button type="primary" :is_loading="true">Submit</app-button>
+        <section 
+            v-show="activeTodos.length">
+            <h2 class="text-2xl font-bold mb-2">Active Todos</h2>
+            <ul>
+                <li 
+                    :key="todo.id"
+                    v-for="todo in activeTodos">
+                    <label>
+                        {{ todo.title }}
+
+                        <input type="checkbox" v-model="todo.is_completed">
+                    </label>
+                </li>
+            </ul>
+        </section>
+
+        <section class="mt-8"
+            v-show="completedTodos.length">
+            <h2 class="text-xl font-bold mb-2">Completed Todos</h2>
+            <ul>
+                <li 
+                    :key="todo.id"
+                    v-for="todo in completedTodos">
+                    <label>
+                        {{ todo.title }}
+
+                        <input type="checkbox" v-model="todo.is_completed">
+                    </label>
+                </li>
+            </ul>
+        </section>
     </div>
 
-    <script type="module">
-        import App from './js/components/App.js';
-        
-        Vue.createApp(App).mount('#app');
+    <script>
+        let app = {
+            data() {
+                return {
+                    todos: [
+                        { id: 1, title: 'Buy groceries', is_completed: false },
+                        { id: 2, title: 'Finish the project', is_completed: false },
+                        { id: 3, title: 'Call the plumber', is_completed: false }                
+                    ]
+                }
+            }, 
+
+            computed: {
+                activeTodos() {
+                    return this.todos.filter(filtered => ! filtered.is_completed)
+                },
+
+                completedTodos() {
+                    return this.todos.filter(filtered => filtered.is_completed)
+                }
+            }
+        }
+
+        Vue.createApp(app).mount('#app');
     </script>
 </body>
 </html>
