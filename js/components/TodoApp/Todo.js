@@ -8,12 +8,12 @@ export default {
     template: `
         <section class="space-y-6">
             <TodoList
-                :tasks="activeTasks"
+                :tasks="active"
                 title="Active Tasks">
             </TodoList>
 
             <TodoList
-                :tasks="completedTasks"
+                :tasks="completed"
                 title="Completed Tasks">
             </TodoList>
         </section>
@@ -30,11 +30,11 @@ export default {
     },
 
     computed: {
-        activeTasks() {
+        active() {
             return this.tasks.filter(filtered => ! filtered.is_completed)
         },
 
-        completedTasks() {
+        completed() {
             return this.tasks.filter(filtered => filtered.is_completed)
         }
     }
