@@ -7,64 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="h-full grid place-items-center">
-    <div id="app">
-        <section 
-            v-show="activeTodos.length">
-            <h2 class="text-2xl font-bold mb-2">Active Todos</h2>
-            <ul>
-                <li 
-                    :key="todo.id"
-                    v-for="todo in activeTodos">
-                    <label>
-                        {{ todo.title }}
+    <div id="app"></div>
 
-                        <input type="checkbox" v-model="todo.is_completed">
-                    </label>
-                </li>
-            </ul>
-        </section>
+    <script type="module">
+        import App from './js/components/App.js';
 
-        <section class="mt-8"
-            v-show="completedTodos.length">
-            <h2 class="text-xl font-bold mb-2">Completed Todos</h2>
-            <ul>
-                <li 
-                    :key="todo.id"
-                    v-for="todo in completedTodos">
-                    <label>
-                        {{ todo.title }}
-
-                        <input type="checkbox" v-model="todo.is_completed">
-                    </label>
-                </li>
-            </ul>
-        </section>
-    </div>
-
-    <script>
-        let app = {
-            data() {
-                return {
-                    todos: [
-                        { id: 1, title: 'Buy groceries', is_completed: false },
-                        { id: 2, title: 'Finish the project', is_completed: false },
-                        { id: 3, title: 'Call the plumber', is_completed: false }                
-                    ]
-                }
-            }, 
-
-            computed: {
-                activeTodos() {
-                    return this.todos.filter(filtered => ! filtered.is_completed)
-                },
-
-                completedTodos() {
-                    return this.todos.filter(filtered => filtered.is_completed)
-                }
-            }
-        }
-
-        Vue.createApp(app).mount('#app');
+        Vue.createApp(App).mount('#app');
     </script>
 </body>
 </html>
