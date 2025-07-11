@@ -17,7 +17,7 @@ export default {
                 title="Completed Tasks">
             </TodoList>
             
-            <form>
+            <form @submit.prevent="addNew">
                 <div class="border border-gray-600 text-block">
                     <input type="text" placeholder="New task..." class="p-2">
                     <button type="submit" class="bg-white p-2 border-l">Add</button>
@@ -42,6 +42,12 @@ export default {
                 active: this.tasks.filter(task => ! task.is_completed),
                 completed: this.tasks.filter(task => task.is_completed)
             }
+        }
+    },
+
+    methods: {
+        addNew() {
+            alert('New task added successfully!');
         }
     }
 }
