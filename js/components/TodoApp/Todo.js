@@ -19,7 +19,11 @@ export default {
             
             <form @submit.prevent="addNew">
                 <div class="border border-gray-600 text-block">
-                    <input type="text" placeholder="New task..." class="p-2">
+                    <input
+                        v-model="newTask" 
+                        type="text" 
+                        placeholder="New task..." 
+                        class="p-2">
                     <button type="submit" class="bg-white p-2 border-l">Add</button>
                 </div>
             </form>
@@ -32,7 +36,9 @@ export default {
                 { id: 1, title: 'Buy groceries', is_completed: false },
                 { id: 2, title: 'Finish the project', is_completed: false },
                 { id: 3, title: 'Call the plumber', is_completed: false }                
-            ]
+            ],
+
+            newTask: ''
         }
     },
 
@@ -47,7 +53,13 @@ export default {
 
     methods: {
         addNew() {
-            alert('New task added successfully!');
+            this.tasks.push({
+                id: this.tasks.length + 1,
+                title: this.newTask,
+                is_completed: false
+            });
+
+            this.newTask = ''
         }
     }
 }
