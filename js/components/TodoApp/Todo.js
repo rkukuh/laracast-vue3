@@ -1,8 +1,10 @@
 import TodoList from './TodoList.js';
+import TodoForm from './TodoForm.js';
 
 export default {
     components: {
-        TodoList
+        TodoList,
+        TodoForm
     },
 
     template: `
@@ -17,16 +19,7 @@ export default {
                 title="Completed Tasks">
             </TodoList>
             
-            <form @submit.prevent="addNew">
-                <div class="border border-gray-600 text-block">
-                    <input
-                        v-model="newTask" 
-                        type="text" 
-                        placeholder="New task..." 
-                        class="p-2">
-                    <button type="submit" class="bg-white p-2 border-l">Add</button>
-                </div>
-            </form>
+            <TodoForm></TodoForm>           
         </section>
     `,
 
@@ -36,9 +29,7 @@ export default {
                 { id: 1, title: 'Buy groceries', is_completed: false },
                 { id: 2, title: 'Finish the project', is_completed: false },
                 { id: 3, title: 'Call the plumber', is_completed: false }                
-            ],
-
-            newTask: ''
+            ]
         }
     },
 
@@ -58,8 +49,6 @@ export default {
                 title: this.newTask,
                 is_completed: false
             });
-
-            this.newTask = ''
         }
     }
 }
