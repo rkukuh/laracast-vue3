@@ -11,7 +11,7 @@ export default {
                 {{ title }}
             </h2>
 
-            <ul>
+            <ul class="border border-gray-600 divide-y divide-gray-600">
                 <TodoListItem
                     v-for="task in tasks"
                     :key="task.id"
