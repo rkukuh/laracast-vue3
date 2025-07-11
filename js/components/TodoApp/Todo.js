@@ -16,6 +16,13 @@ export default {
                 :tasks="filters.completed"
                 title="Completed Tasks">
             </TodoList>
+            
+            <form>
+                <div>
+                    <input type="text" placeholder="New task...">
+                    <button type="submit">Add</button>
+                </div>
+            </form>
         </section>
     `,
 
