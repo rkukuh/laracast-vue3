@@ -19,7 +19,7 @@ export default {
                 title="Completed Tasks">
             </TodoList>
             
-            <TodoForm></TodoForm>           
+            <TodoForm @addNew="addNew"></TodoForm>           
         </section>
     `,
 
@@ -43,10 +43,10 @@ export default {
     },
 
     methods: {
-        addNew() {
+        addNew(taskTitle) {
             this.tasks.push({
                 id: this.tasks.length + 1,
-                title: this.newTask,
+                title: taskTitle,
                 is_completed: false
             });
         }

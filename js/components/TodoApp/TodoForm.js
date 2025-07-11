@@ -20,7 +20,9 @@ export default {
 
     methods: {
         addNew() {
-            alert('New task added!');
+            this.$emit('addNew', this.newTask);
+
+            this.newTask = '';
         }
     }
 }
