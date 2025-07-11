@@ -18,9 +18,9 @@ export default {
             </TodoList>
             
             <form>
-                <div>
-                    <input type="text" placeholder="New task...">
-                    <button type="submit">Add</button>
+                <div class="border border-gray-600 text-block">
+                    <input type="text" placeholder="New task..." class="p-2">
+                    <button type="submit" class="bg-white p-2 border-l">Add</button>
                 </div>
             </form>
         </section>
