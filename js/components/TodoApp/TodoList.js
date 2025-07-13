@@ -9,6 +9,7 @@ export default {
         <section v-show="tasks.length">
             <h2 class="text-2xl font-bold mb-2">
                 {{ title }}
+                <span>({{ tasks.length }})</span>
             </h2>
 
             <ul class="border border-gray-600 divide-y divide-gray-600">
