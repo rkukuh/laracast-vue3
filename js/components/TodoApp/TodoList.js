@@ -11,8 +11,16 @@ export default {
                 {{ title }}
                 <span>({{ tasks.length }})</span>
             </h2>
+            
+            <div class="flex gap-2">
+                <button 
+                    v-for="tag in tags"
+                    class="border rounded px-1 py-px text-xs">
+                    {{ tag }}
+                </button>
+            </div>
 
-            <ul class="border border-gray-600 divide-y divide-gray-600">
+            <ul class="border border-gray-600 divide-y divide-gray-600 mt-6">
                 <TodoListItem
                     v-for="task in tasks"
                     :key="task.id"
@@ -25,5 +33,11 @@ export default {
     props: {
         tasks: Array,
         title: String
+    },
+
+    computed: {
+        tags() {
+            return ['personal', 'work', 'school', 'other'];
+        }
     }
 }
