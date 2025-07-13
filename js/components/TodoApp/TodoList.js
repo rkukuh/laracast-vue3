@@ -37,7 +37,7 @@ export default {
 
     computed: {
         tags() {
-            return this.tasks.map(task => task.tag);
+            return new Set(this.tasks.map(task => task.tag));
         }
     }
 }
