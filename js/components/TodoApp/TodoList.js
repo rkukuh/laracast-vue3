@@ -37,7 +37,7 @@ export default {
 
     computed: {
         tags() {
-            return ['personal', 'work', 'school', 'other'];
+            return this.tasks.map(task => task.tag);
         }
     }
 }

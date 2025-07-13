@@ -26,9 +26,10 @@ export default {
     data() {
         return {
             tasks: [
-                { id: 1, title: 'Buy groceries', is_completed: false },
-                { id: 2, title: 'Finish the project', is_completed: false },
-                { id: 3, title: 'Call the plumber', is_completed: false }                
+                { id: 1, title: 'Buy groceries', is_completed: false, tag: 'personal' },
+                { id: 2, title: 'Finish the project', is_completed: false, tag: 'work' },
+                { id: 3, title: 'Work on math assignment', is_completed: false, tag: 'school' },
+                { id: 4, title: 'Read chemistry book', is_completed: false, tag: 'school' },
             ]
         }
     },
