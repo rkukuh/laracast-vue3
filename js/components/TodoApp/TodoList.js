@@ -38,17 +38,17 @@ export default {
 
     data() {
         return {
-            currentTag: ''
+            currentTag: 'all'
         };
     },
 
     computed: {
         tags() {
-            return [...new Set(this.tasks.map(task => task.tag))];
+            return ['all', ...new Set(this.tasks.map(task => task.tag))];
         },
 
         filteredTasks() {
-            if (! this.currentTag) {
+            if (this.currentTag === 'all') {
                 return this.tasks;
             }
 
