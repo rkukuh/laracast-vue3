@@ -16,6 +16,7 @@ export default {
             
             <TodoListTag 
                 :initial-tags="tasks.map(task => task.tag)" 
+                :current-tag="currentTag"
                 @change="currentTag = $event"/>
 
             <ul class="border border-gray-600 divide-y divide-gray-600 mt-6">
