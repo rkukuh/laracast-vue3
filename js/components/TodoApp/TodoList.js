@@ -14,7 +14,9 @@ export default {
                 <span>({{ tasks.length }})</span>
             </h2>
             
-            <TodoListTag :initial-tags="tasks.map(task => task.tag)" />
+            <TodoListTag 
+                :initial-tags="tasks.map(task => task.tag)" 
+                @change="currentTag = $event"/>
 
             <ul class="border border-gray-600 divide-y divide-gray-600 mt-6">
                 <TodoListItem
