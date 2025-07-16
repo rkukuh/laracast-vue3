@@ -15,9 +15,8 @@ export default {
             </h2>
             
             <TodoListTag 
-                :initial-tags="tasks.map(task => task.tag)" 
-                :current-tag="currentTag"
-                @change="currentTag = $event"/>
+                v-model="currentTag"
+                :initial-tags="tasks.map(task => task.tag)"/>
 
             <ul class="border border-gray-600 divide-y divide-gray-600 mt-6">
                 <TodoListItem
