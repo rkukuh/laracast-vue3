@@ -15,7 +15,7 @@ export default {
             </h2>
             
             <TodoListTag 
-                v-model="currentTag"
+                v-model:currentTag="currentTag"
                 :initial-tags="tasks.map(task => task.tag)"/>
 
             <ul class="border border-gray-600 divide-y divide-gray-600 mt-6">
