@@ -19,7 +19,7 @@ export default {
                 title="Completed Tasks">
             </TodoList>
             
-            <TodoForm @addNew="addNew"></TodoForm>           
+            <TodoForm @addNew="addNew"></TodoForm>
         </section>
     `,
 
@@ -27,6 +27,15 @@ export default {
         return {
             tasks: []
         }
+    },
+
+    created() {
+        fetch('http://localhost:3001/tasks')
+            .then(response => response.json())
+            .then(data => {
+                console.table(data);
+            })
+            .catch(error => console.log(error));
     },
 
     computed: {
