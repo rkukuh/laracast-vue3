@@ -33,7 +33,7 @@ export default {
         fetch('http://localhost:3001/tasks')
             .then(response => response.json())
             .then(data => {
-                console.table(data);
+                this.tasks = data;
             })
             .catch(error => console.log(error));
     },
